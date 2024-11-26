@@ -1,0 +1,18 @@
+@import "../../global/css/variables.css";
+
+#text_background {
+    background-color: var(--black);
+    
+    margin: 15px 30px;
+    margin-bottom: 0px;
+    padding: 0px 60px;
+
+    border: 2px dashed var(--white);
+    border-radius: 5px;
+}
+
+#text_value {
+    color: var(--white);
+    font-weight: bold;
+    letter-spacing: 2px;
+}

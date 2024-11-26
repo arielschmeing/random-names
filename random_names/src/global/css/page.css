@@ -1,0 +1,10 @@
+@import "./variables.css";
+
+body {
+    background-color: var(--background);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+main {
+    background-color: var(--main);
+}
