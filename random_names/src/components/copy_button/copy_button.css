@@ -1,0 +1,18 @@
+@import "copy_button.css";
+
+#copy_button {
+    padding: 0;
+    width: 48px;
+    background-color: var(--red);
+    
+    border: none;
+    border-radius: 50%;   
+}
+
+#copy_button:hover {
+    background-color: var(--white);
+}
+
+#copy_button:active {
+    background-color: var(--green);
+}

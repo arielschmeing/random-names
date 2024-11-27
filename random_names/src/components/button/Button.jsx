@@ -1,6 +1,6 @@
-import Name_space from "../name_space/Name_space"
 import "./button.css"
 import { useState } from "react"
+import Name_space from "../name_space/Name_space"
 
 function generateName() {
     let new_name = ""
