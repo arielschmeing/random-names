@@ -4,9 +4,6 @@ import Button from "../button/Button"
 import Label_form from "../label_form/Label_form"
 
 function Form_race() {
-    const name_type = "name_race"
-    const name_sex = "name_sex"
-
     const i_man = useRef()
     const i_woman = useRef()
 
@@ -15,7 +12,7 @@ function Form_race() {
     const i_tiefling = useRef()
     const i_dwarf = useRef()
 
-    function checkmark_race_filter() {
+    function handler_race_filter() {
         if(i_elf.current.checked) {
             let r_number = Math.floor(Math.random() * 49)
             
@@ -56,24 +53,24 @@ function Form_race() {
             }
         }
     }
-    
+
     return (
         <div>
             <form action="">
-                <Button text_btn={"Gerar nome"} func_actived={checkmark_race_filter}/>
+                <Button text_btn={"Gerar nome"} func_actived={handler_race_filter}/>
 
-                <Label_form input_ref={i_elf} name={name_type} id={"elf"} value={"Elfo"} s_text={"Elfo"}/>
+                <Label_form input_ref={i_elf} name={"name_race"} id={"elf"} value={"Elfo"} s_text={"Elfo"}/>
 
-                <Label_form input_ref={i_orc} name={name_type} id={"orc"} value={"Orc"} s_text={"Orc"}/>
+                <Label_form input_ref={i_orc} name={"name_race"} id={"orc"} value={"Orc"} s_text={"Orc"}/>
 
-                <Label_form input_ref={i_tiefling} name={name_type} id={"tiefling"} value={"Tiefling"} s_text={"Tiefling"}/>
+                <Label_form input_ref={i_tiefling} name={"name_race"} id={"tiefling"} value={"Tiefling"} s_text={"Tiefling"}/>
 
-                <Label_form input_ref={i_dwarf} name={name_type} id={"dwarf"} value={"Anão"} s_text={"Anão"}/>
+                <Label_form input_ref={i_dwarf} name={"name_race"} id={"dwarf"} value={"Anão"} s_text={"Anão"}/>
 
                 <div>
-                    <Label_form input_ref={i_man} name={name_sex} id={"man"} value={"Homem"} s_text={"Homem"}/>
+                    <Label_form input_ref={i_man} name={"name_sex"} id={"man"} value={"Homem"} s_text={"Homem"}/>
 
-                    <Label_form input_ref={i_woman} name={name_sex} id={"woman"} value={"Mulher"} s_text={"Mulher"}/>
+                    <Label_form input_ref={i_woman} name={"name_sex"} id={"woman"} value={"Mulher"} s_text={"Mulher"}/>
                 </div>
             </form>
         </div>
