@@ -11,3 +11,7 @@
 .checkmark {
     accent-color: var(--red);
 }
+
+span {
+    padding: 15px;
+}

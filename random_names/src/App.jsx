@@ -1,6 +1,7 @@
 import Title from "./components/title/Title"
 import Button from "./components/button/Button"
-import Form from "./components/form/Form"
+import Form_genere from "./components/form_sex/Form_genere"
+import Form_race from "./components/form_race/Form_race"
 
 function generateName() {
   let new_name = ""
@@ -43,9 +44,15 @@ function App() {
         <Title text_title={"Random Names"}/>
         <Button text_btn={"Gerar nome"} func_actived={generateName}/>
       </article>
+      
       <article>
         <Title text_title={"Random names with Filter"}/>
-        <Form/>
+        <Form_genere/>
+      </article>
+
+      <article>
+        <Title text_title={"Random names per race"}/>
+        <Form_race/>
       </article>
     </main>
   )
