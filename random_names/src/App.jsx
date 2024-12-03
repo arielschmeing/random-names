@@ -1,7 +1,8 @@
 import Title from "./components/title/Title"
 import Button from "./components/button/Button"
-import Form_genere from "./components/form_genere/Form_genere"
 import Form_race from "./components/form_race/Form_race"
+import Form_genere from "./components/form_genere/Form_genere"
+import Notification from "./components/notification/Notification"
 
 function generateName() {
   let new_name = ""
@@ -40,6 +41,7 @@ function generateName() {
 function App() {
   return (
     <main>
+      {/* <Notification text={"Texto copiado!"}/> */}
       <article>
         <Title text_title={"Random Names"}/>
         <Button text_btn={"Gerar nome"} func_actived={generateName}/>

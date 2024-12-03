@@ -1,27 +1,27 @@
 import { useRef } from "react"
+import Label from "../../js/label"
 import Button from "../button/Button"
 import Names from "../../json/names.json"
 import Label_form from "../label_form/Label_form"
 
 function Form_genere() {
-    const name_type = "name_sex"
 
-    const i_man = useRef()
-    const i_woman = useRef()
-    const i_unissex = useRef()
+    const label_man = new Label(useRef(), "name_sex", "man", "Man")
+    const label_woman = new Label(useRef(), "name_sex", "woman", "Woman")
+    const label_unissex = new Label(useRef(), "name_sex", "unissex", "Unissex")
 
-    function checkmark_func() {
-        if(i_man.current.checked == true) {
+    function handler_genere_filter() {
+        if(label_man.input_ref.current.checked) {
 
             let r_number = Math.floor(Math.random() * 211)
             return Names.man_names[r_number]
 
-        }else if(i_woman.current.checked == true) {
+        }else if(label_woman.input_ref.current.checked) {
             
             let r_number = Math.floor(Math.random() * 91)
             return Names.woman_names[r_number]
 
-        }else if(i_unissex.current.checked == true) {
+        }else if(label_unissex.input_ref.current.checked) {
             
             let r_number = Math.floor(Math.random() * 55)
             return Names.unissex_names[r_number]
@@ -32,13 +32,11 @@ function Form_genere() {
     return (
         <div>
             <form action="">
-                <Button text_btn={"Gerar nome"} func_actived={checkmark_func}/>
+                <Button text_btn={"Gerar nome"} func_actived={handler_genere_filter}/>
 
-                <Label_form input_ref={i_man} name={name_type} id={"man"} value={"Homem"} s_text={"Homem"}/>
-
-                <Label_form input_ref={i_woman} name={name_type} id={"woman"} value={"Mulher"} s_text={"Mulher"}/>
-
-                <Label_form input_ref={i_unissex} name={name_type} id={"unissex"} value={"Unissex"} s_text={"Unissex"}/>
+                <Label_form {...label_man}/>
+                <Label_form {...label_woman}/>
+                <Label_form {...label_unissex}/>
             </form>
         </div>
     )

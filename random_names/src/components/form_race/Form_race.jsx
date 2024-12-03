@@ -1,53 +1,55 @@
 import { useRef } from "react"
-import Names from "../../json/names.json"
+import Label from "../../js/label"
 import Button from "../button/Button"
+import Names from "../../json/names.json"
 import Label_form from "../label_form/Label_form"
 
 function Form_race() {
-    const i_man = useRef()
-    const i_woman = useRef()
+    
+    const label_man = new Label(useRef(), "name_sex", "man", "Homem")
+    const label_woman = new Label(useRef(), "name_sex", "woman", "Woman")
 
-    const i_elf = useRef()
-    const i_orc = useRef()
-    const i_tiefling = useRef()
-    const i_dwarf = useRef()
+    const label_elf = new Label(useRef(), "name_race", "elf", "Elfo")
+    const label_orc = new Label(useRef(), "name_race", "orc", "Orc")
+    const label_tiefling = new Label(useRef(), "name_race", "tiefling", "Tiefling")
+    const label_dwarf = new Label(useRef(), "name_race", "dwarf", "Dwarf")
 
     function handler_race_filter() {
-        if(i_elf.current.checked) {
+        if(label_elf.input_ref.current.checked) {
             let r_number = Math.floor(Math.random() * 49)
             
-            if(i_man.current.checked) {
+            if(label_man.input_ref.current.checked) {
                 return Names.elf_names.man[r_number]
-            }else if(i_woman.current.checked){
+            }else if(label_woman.input_ref.current.checked){
                 return Names.elf_names.woman[r_number]
             }
         }
 
-        if(i_orc.current.checked) {
-            if(i_man.current.checked) {
+        if(label_orc.input_ref.current.checked) {
+            if(label_man.input_ref.current.checked) {
                 let r_number = Math.floor(Math.random() * 66)
                 return Names.orc_names.man[r_number]
-            }else if (i_woman.current.checked){
+            }else if (label_woman.input_ref.current.checked){
                 let r_number = Math.floor(Math.random() * 75)
                 return Names.orc_names.woman[r_number]
             }
         }
 
-        if(i_tiefling.current.checked) {
+        if(label_tiefling.input_ref.current.checked) {
             let r_number = Math.floor(Math.random() * 24)
 
-            if(i_man.current.checked) {
+            if(label_man.input_ref.current.checked) {
                 return Names.tiefling_names.man[r_number]
-            }else if (i_woman.current.checked){
+            }else if (label_woman.input_ref.current.checked){
                 return Names.tiefling_names.woman[r_number]
             }
         }
 
-        if(i_dwarf.current.checked) {
-            if(i_man.current.checked) {
+        if(label_dwarf.input_ref.current.checked) {
+            if(label_man.input_ref.current.checked) {
                 let r_number = Math.floor(Math.random() * 56)
                 return Names.dwarf_names.man[r_number]
-            }else if(i_woman.current.checked) {
+            }else if(label_woman.input_ref.current.checked) {
                 let r_number = Math.floor(Math.random() * 41)
                 return Names.dwarf_names.woman[r_number]
             }
@@ -59,18 +61,14 @@ function Form_race() {
             <form action="">
                 <Button text_btn={"Gerar nome"} func_actived={handler_race_filter}/>
 
-                <Label_form input_ref={i_elf} name={"name_race"} id={"elf"} value={"Elfo"} s_text={"Elfo"}/>
-
-                <Label_form input_ref={i_orc} name={"name_race"} id={"orc"} value={"Orc"} s_text={"Orc"}/>
-
-                <Label_form input_ref={i_tiefling} name={"name_race"} id={"tiefling"} value={"Tiefling"} s_text={"Tiefling"}/>
-
-                <Label_form input_ref={i_dwarf} name={"name_race"} id={"dwarf"} value={"Anão"} s_text={"Anão"}/>
+                <Label_form {...label_elf}/>
+                <Label_form {...label_orc}/>
+                <Label_form {...label_tiefling}/>
+                <Label_form {...label_dwarf}/>
 
                 <div>
-                    <Label_form input_ref={i_man} name={"name_sex"} id={"man"} value={"Homem"} s_text={"Homem"}/>
-
-                    <Label_form input_ref={i_woman} name={"name_sex"} id={"woman"} value={"Mulher"} s_text={"Mulher"}/>
+                    <Label_form {...label_man}/>
+                    <Label_form {...label_woman}/>
                 </div>
             </form>
         </div>

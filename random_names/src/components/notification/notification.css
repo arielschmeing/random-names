@@ -1,0 +1,13 @@
+@import "../../global/css/variables.css";
+
+aside {
+    padding: 10px;
+    position: absolute;
+    border-radius: 5px;
+    background-color: var(--main);
+}
+
+p {
+    color: var(--green);
+    font-size: 17px;
+}
